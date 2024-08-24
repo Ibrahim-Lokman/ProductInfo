@@ -31,9 +31,12 @@ const Splash = () => {
                 />
                 <View style={{ height: "10%" }} />
                 <AppButton
+
                     customstyle={[
                         { backgroundColor: AppColors.secondary, color: AppColors.contentOnSecondary },
                     ]}
+
+
                     title="Sign up"
                 />
             </View>
