@@ -12,19 +12,10 @@ const AppButton = (props: any) => {
             onPress={handlePress}
             style={[styles.container, ...props.customstyle ?? []]}
         >
-            <Text style={styles.title} >{props.title}</Text>
+            <Text style={[styles.title, ...props.customstyle ?? []]} >{props.title}</Text>
         </TouchableOpacity>
     )
 }
 
-// const PressableButton = (props: any) => {
-//     return (
-//         <Pressable
-//             style={[styles.container, ...props.customstyle ?? []]}
-//             onPress={() => console.log('pressed')}>
-//             <Text style={styles.title} >{props.title}</Text>
-//         </Pressable>
-//     )
-// }
 
 export default AppButton;

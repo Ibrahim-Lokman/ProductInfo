@@ -3,6 +3,8 @@ import { Image, Pressable, Text, View } from "react-native"
 import { styles } from "./splash_styles";
 import AppButton from "../../../components/button/btn_component";
 import PressableButton from "../../../components/button/btn_component";
+import App from "../../../../App";
+import { AppColors } from "../../../utils/colors";
 
 
 const Splash = () => {
@@ -29,7 +31,7 @@ const Splash = () => {
                 <View style={{ height: 10 }} />
                 <AppButton
                     customstyle={[
-                        { backgroundColor: 'grey' },
+                        { backgroundColor: AppColors.secondary, color: AppColors.contentOnSecondary },
                     ]}
                     title="Sign up"
                 />

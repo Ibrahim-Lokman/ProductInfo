@@ -1,4 +1,5 @@
 import { StatusBar, StyleSheet } from "react-native";
+import { AppColors } from "../../../utils/colors";
 
 export const styles = StyleSheet.create({
     container: {
@@ -6,7 +7,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         height: '100%',
-        backgroundColor: 'white',
+        backgroundColor: AppColors.white,
         paddingBottom: 20
 
     },
@@ -19,7 +20,7 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',
-        color: 'royalblue',
+        color: AppColors.primary,
     },
 
 }
