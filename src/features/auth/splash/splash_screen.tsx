@@ -24,11 +24,12 @@ const Splash = () => {
                 flexDirection: 'column',
                 width: '100%',
                 alignItems: 'center',
+                justifyContent: 'space-between',
             }} >
                 <AppButton
                     title="Sign In"
                 />
-                <View style={{ height: 10 }} />
+                <View style={{ height: "10%" }} />
                 <AppButton
                     customstyle={[
                         { backgroundColor: AppColors.secondary, color: AppColors.contentOnSecondary },

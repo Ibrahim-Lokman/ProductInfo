@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     },
 
     title: {
-        color: AppColors.white,
+        color: AppColors.contentOnPrimary,
         textAlign: 'center',
         fontSize: 16,
         fontWeight: 'bold',
