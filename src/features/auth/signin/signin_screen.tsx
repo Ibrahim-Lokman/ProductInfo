@@ -46,6 +46,7 @@ const SignIn = ({ navigation }: { navigation: any }) => {
                     <AppButton
                         customstyle={[{ width: "100%" }]}
                         title="Sign in to home"
+                        onPress={() => navigation.navigate('Tabs')}
                     />
 
                 </View>

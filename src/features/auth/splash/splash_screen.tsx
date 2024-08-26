@@ -40,7 +40,7 @@ const Splash = ({ navigation }: { navigation: any }) => {
                 />
                 <View style={{ height: "10%" }} />
                 <AppButton
-                    title="Guest mode"
+                    title="guest mode"
                 />
 
             </View>

@@ -5,19 +5,19 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import SignIn from './src/features/auth/signin/signin_screen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeScreen from './src/features/home/home_screen';
+import FavouriteScreen from './src/features/favourite/favourite_screen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-// const Tabs = () => {
-//   <Tab.Navigator>
-//     <Tab.Screen name="Home" component={} />
-//     <Tab.Screen name="Favourite" component={} />
+const Tabs = () => {
+  return <Tab.Navigator screenOptions={{ headerShown: false }}>
+    <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: true }} />
+    <Tab.Screen name="Favourite" component={FavouriteScreen} />
+  </Tab.Navigator>
 
-
-//   </Tab.Navigator>
-
-// }
+}
 function App(): React.JSX.Element {
 
   const isSignedIn = false;
@@ -25,8 +25,20 @@ function App(): React.JSX.Element {
   return (
     <NavigationContainer >
       <Stack.Navigator>
-        <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
-        <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />
+        {isSignedIn ? (
+          <>
+            <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
+          </>
+
+        ) : (
+          <>
+            <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
+            <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />
+            <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
+          </>
+
+        )}
+
       </Stack.Navigator>
     </NavigationContainer>
     // <SignUp />
