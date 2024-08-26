@@ -41,6 +41,7 @@ const Splash = ({ navigation }: { navigation: any }) => {
                 <View style={{ height: "10%" }} />
                 <AppButton
                     title="guest mode"
+                    onPress={() => navigation.navigate('Tabs')}
                 />
 
             </View>

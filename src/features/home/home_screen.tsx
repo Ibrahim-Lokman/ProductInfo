@@ -1,24 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, ScrollView } from 'react-native';
+import { CategoryItemComp } from './components/category_item_comp';
+import { ProductItemComp } from './components/product_item_comp';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Welcome to the Home Screen!</Text>
-        </View>
+
+        <SafeAreaView >
+            <CategoryItemComp />
+            <ProductItemComp />
+        </SafeAreaView>
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-    },
-});
 
 export default HomeScreen;
