@@ -7,7 +7,9 @@ import App from "../../../../App";
 import { AppColors } from "../../../utils/colors";
 
 
-const Splash = () => {
+const Splash = ({ navigation }: { navigation: any }) => {
+    console.log("Splash Screen")
+    console.log(navigation)
     return (
         <View style={styles.container} >
             <Image
@@ -26,19 +28,21 @@ const Splash = () => {
                 alignItems: 'center',
                 justifyContent: 'space-between',
             }} >
-                <AppButton
-                    title="Sign In"
-                />
-                <View style={{ height: "10%" }} />
+
                 <AppButton
 
                     customstyle={[
                         { backgroundColor: AppColors.secondary, color: AppColors.contentOnSecondary },
                     ]}
 
-
-                    title="Sign up"
+                    onPress={() => navigation.navigate('SignIn')}
+                    title="Sign In"
                 />
+                <View style={{ height: "10%" }} />
+                <AppButton
+                    title="Guest mode"
+                />
+
             </View>
 
         </View >

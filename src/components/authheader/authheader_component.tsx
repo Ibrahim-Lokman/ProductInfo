@@ -10,7 +10,7 @@ const AppBar = ({ title, onBackPressed }: { title: string, onBackPressed: () => 
                 flexDirection: 'row',
                 width: '100%',
                 paddingHorizontal: 10,
-                height: 50,
+                height: '7%',
                 alignItems: 'center',
                 backgroundColor: AppColors.primary,
             }
@@ -29,7 +29,7 @@ const AppBar = ({ title, onBackPressed }: { title: string, onBackPressed: () => 
                 }}
                 onPress={
                     () => {
-                        console.log('back pressed');
+                        onBackPressed()
                     }
                 } >
                 <Text

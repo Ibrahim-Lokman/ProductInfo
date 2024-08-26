@@ -9,7 +9,7 @@ const AppButton = (props: any) => {
 
     return (
         <TouchableOpacity
-            onPress={handlePress}
+            onPress={props.onPress ?? handlePress}
             style={[styles.container, ...props.customstyle ?? []]}
         >
             <Text style={[styles.title, ...props.customstyle ?? []]} >{props.title}</Text>

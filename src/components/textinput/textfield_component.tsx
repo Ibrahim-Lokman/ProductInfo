@@ -1,5 +1,5 @@
 import React from "react"
-import { KeyboardTypeOptions, Text, TextInput, View } from "react-native"
+import { Keyboard, KeyboardTypeOptions, Text, TextInput, View } from "react-native"
 import { AppColors } from "../../utils/colors"
 
 const AppInputField = (
@@ -30,7 +30,6 @@ const AppInputField = (
             <TextInput
                 keyboardType={keyboardType as KeyboardTypeOptions}
                 multiline={true}
-
                 numberOfLines={2}
                 placeholder={placeholder}
                 style={{
