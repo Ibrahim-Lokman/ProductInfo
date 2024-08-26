@@ -19,11 +19,12 @@ const Tabs = () => {
 
     screenOptions={({ route }) => ({
 
-      headerShown: false,
+      headerShown: true,
       tabBarShowLabel: false,
 
       tabBarIcon: ({ focused }) => {
-        return <View >
+        return <View
+        >
           <Text
             style={{
 

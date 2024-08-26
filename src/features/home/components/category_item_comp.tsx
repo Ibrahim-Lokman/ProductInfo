@@ -1,52 +1,68 @@
-import { FlatList, Image, Pressable, Text } from "react-native"
+import { FlatList, Image, Pressable, Text, View } from "react-native"
 import { AppColors } from "../../../utils/colors"
-import React from "react"
+import React, { useState } from "react"
 import { categories } from "../../../data/categories"
+import { products } from "../../../data/products"
+import { ProductItemComp } from "./product_item_comp"
 
 
 export const CategoryItemComp = () => {
+    const [selectedCategory, setSelectedCategory] = useState("All");
+    const [filterdProducts, setFilterdProducts] = useState(products);
     return (
-        <FlatList
-            // style={{ padding: 10 }}
-            horizontal
-            data={categories}
-            showsHorizontalScrollIndicator={false}
 
-            renderItem={({ item }) =>
+        <View>
+            <FlatList
+                style={{ height: '10%' }}
+                horizontal
+                data={categories}
+                showsHorizontalScrollIndicator={false}
+                renderItem={({ item }) =>
 
-                <Pressable
-                    onPress={() => console.log('pressed')}
-                    style={{
-                        backgroundColor: 'white',
-                        borderColor: AppColors.primary,
-                        borderWidth: 0.5,
-                        borderRadius: 10,
-                        elevation: 3,
-                        padding: 10,
-                        margin: 5,
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}
-                >
-                    <Image
-                        source={{ uri: item.image }}
-                        style={{
-                            width: 45,
-                            aspectRatio: 1,
-
+                    <Pressable
+                        onPress={() => {
+                            setSelectedCategory(item.title)
+                            setFilterdProducts(item.id != null ? products.filter((product) => product.category === item.id) : products)
                         }}
-                    />
-                    <Text
                         style={{
-                            fontSize: 12,
-                            fontWeight: 'bold',
-                            color: AppColors.primary,
-                            textAlign: 'center'
+                            backgroundColor: 'white',
+                            borderColor: selectedCategory == item.title ? AppColors.primary : 'white',
+                            borderWidth: 1,
+                            borderRadius: 10,
+
+
+                            padding: 10,
+                            margin: 5,
+                            justifyContent: 'center',
+                            alignItems: 'center'
                         }}
-                    >{item.title}</Text>
-                </Pressable>
-            }
-        />
+                    >
+                        <Image
+                            source={{ uri: item.image }}
+
+                            style={{
+                                width: 60,
+                                height: "100%",
+                                objectFit: 'contain',
+                            }}
+                        />
+                        <Text
+                            style={{
+                                fontSize: 12,
+                                fontWeight: 'bold',
+                                color: AppColors.primary,
+                                textAlign: 'center'
+                            }}
+                        >{item.title}</Text>
+                    </Pressable>
+                }
+            />
+            <ProductItemComp
+                productsFiltered={filterdProducts}
+            />
+
+        </View>
+
 
 
     )

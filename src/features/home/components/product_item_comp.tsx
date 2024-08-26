@@ -2,18 +2,18 @@ import { Dimensions, FlatList, Image, Pressable, Text, View } from "react-native
 import { AppColors } from "../../../utils/colors"
 import React from "react"
 import { categories } from "../../../data/categories"
-import { products } from "../../../data/products"
+import { products } from '../../../data/products';
 import { BottomTabBar, BottomTabBarHeightContext } from "@react-navigation/bottom-tabs"
 
 
-export const ProductItemComp = () => {
+export const ProductItemComp = ({ productsFiltered }: { productsFiltered: any }) => {
     return (
         <FlatList
-            style={{ padding: 10 }}
+            style={{ paddingHorizontal: 10, height: '90%' }}
             numColumns={2}
-            data={products}
+            data={productsFiltered}
             showsVerticalScrollIndicator={false}
-            ListFooterComponent={<View style={{ height: 100 }} />}
+
             renderItem={({ item }) =>
 
                 <Pressable
