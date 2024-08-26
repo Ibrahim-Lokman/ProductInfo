@@ -7,13 +7,44 @@ import SignIn from './src/features/auth/signin/signin_screen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/features/home/home_screen';
 import FavouriteScreen from './src/features/favourite/favourite_screen';
+import { styles } from './src/components/button/btn_style';
+import { Text, View } from 'react-native';
+import { AppColors } from './src/utils/colors';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
-  return <Tab.Navigator screenOptions={{ headerShown: false }}>
-    <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: true }} />
+  return <Tab.Navigator
+
+    screenOptions={({ route }) => ({
+
+      headerShown: false,
+      tabBarShowLabel: false,
+
+      tabBarIcon: ({ focused }) => {
+        return <View >
+          <Text
+            style={{
+
+              color: focused ? AppColors.primary : 'black',
+              textTransform: 'uppercase',
+              textDecorationLine: focused ? 'underline' : 'none',
+              fontSize: 14,
+              fontWeight: 'bold',
+            }}
+          >
+            {route.name}
+          </Text>
+        </View>;
+      }
+    })}
+  >
+
+
+
+
+    <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: true, }} />
     <Tab.Screen name="Favourite" component={FavouriteScreen} />
   </Tab.Navigator>
 
